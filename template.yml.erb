@@ -1,0 +1,45 @@
+---
+<%-
+app_name = __app_name__
+app_root = __app_root__+app_name
+-%>
+cluster: ada
+form:
+  - version
+  - bc_num_hours
+  - bc_num_slots
+  - mem_per_core
+  - use_gpu
+  - bc_account
+  - bc_vnc_resolution
+  - email
+  - bc_email_on_started
+attributes:
+  version:
+    widget: select
+    label: <%= app_name %> version
+    options:
+      <% IO.foreach(app_root+"/modules") do |line| %>
+      - <%= line %>
+      <% end %>
+  bc_num_slots:
+    label: "Number of cores"
+    min: 1
+    help: |
+      Specify number of cores allocated on a node 
+  mem_per_core:
+    widget: "number_field"
+    value: "2"
+    min: "1"
+    label: "Memory per core (GB)"
+    help: |
+      Requested memory per core   
+  use_gpu:
+    widget: check_box
+    label: "Check here if you want to use GPU"
+  bc_account:
+    help: |
+      This field is optional.
+  bc_vnc_resolution:
+    required: true
+
