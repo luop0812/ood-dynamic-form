@@ -11,7 +11,7 @@ the pace of module updates on a HPC system.
 ## Create the template form
 
 The file `template.yml.erb` serves as a template to generate the real application forms. 
-First, you need to edit the 'form' and 'attribute' secitons of `template.yml.erb`. You need 
+First, you need to edit the `form` and `attribute` secitons of `template.yml.erb`. You need 
 to make sure that each form entry and its attributes are what you want.
 
 The key parts of the template file are the two segments of ruby code embeded into the yml file.
