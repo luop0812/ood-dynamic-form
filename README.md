@@ -14,8 +14,7 @@ The file `template.yml.erb` serves as a template to generate the real applicatio
 First, you need to edit the 'form' and 'attribute' secitons of `template.yml.erb`. You need 
 to make sure that each form entry and its attributes are what you want.
 
-The key parts of the template file are the two segments of ruby code embeded into the yml file
-that do the trick.
+The key parts of the template file are the two segments of ruby code embeded into the yml file.
 
 ```
 <%-
