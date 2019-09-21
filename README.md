@@ -1,3 +1,13 @@
+## Purpose
+
+Software packages are constently being updated with newer versions at most HPC centers.
+As a result, any service that involves listing current versions of software modules must 
+be updated frequently. One such service is OOD. 
+
+To automate the form updates with the latest module list for each software package served
+through the portal, I developed this dynamic form generation scheme that will keep up with 
+the pace of module updates on a HPC system.
+
 ## Create the template form
 
 The file `template.yml.erb` serves as a template to generate the real application forms. 
