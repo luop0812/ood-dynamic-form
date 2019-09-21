@@ -47,9 +47,9 @@ and copy it to `/var/www/ood/apps/sys/app_name`. If there is a `form.yml` existi
 `path` is a parameter for the root path where all the module list files are stored. In the following example, `path` will be `/usr/local/ood-dynamic-module-list`.
 ```
 /usr/local/ood-dynamic-module-list
-├── abaqus
+├── matlab
 │   └── modules
-├── ansys
+├── abaqus
 │   └── modules
 └── comsol
     └── modules
@@ -61,8 +61,16 @@ Now run the module list generator
 
 >sudo gen_module_list.sh -p path -f app.list
 
-This script will actually generate the module list files as shown in the above example. 
+This script will generate the module list files as shown in the above example.  
 
+A sample `modules` looks like this:
+
+```
+- [ "MATLAB/2016b" ]
+- [ "MATLAB/2017b" ]
+- [ "MATLAB/2018b" ]
+- [ "MATLAB/2019a" ]
+```
 ## Cron job
 
 To automate the module list generation, you need to create a cron job which runs `gen_module_list.sh` once every day. 
