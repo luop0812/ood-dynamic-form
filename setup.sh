@@ -2,8 +2,7 @@
 
 module_root=
 app_list_file=
-#ood_app_root='/var/www/ood/apps/sys'
-ood_app_root=$(pwd)
+ood_app_root='/var/www/ood/apps/sys'
 
 # process arguments
 while getopts ":p:f:" OPTION; do
@@ -45,6 +44,6 @@ for app in $apps; do
         fi 
 
         # move form.yml.erb to app_root
-#       mv form.yml.erb ${app_root}
+        mv form.yml.erb ${app_root}
     fi
 done
