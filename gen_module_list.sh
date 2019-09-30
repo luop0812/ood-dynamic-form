@@ -40,6 +40,6 @@ for app in $apps; do
     # write each version to a file, with the format '- [ "version" ]'
     cat /dev/null > $module_file
     for module in $ret; do
-        echo "- [ \"$module\" ]" >> $module_file
+        echo "$module" >> $module_file
     done   
 done

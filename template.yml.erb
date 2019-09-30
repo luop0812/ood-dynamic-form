@@ -20,7 +20,7 @@ attributes:
     label: <%= app_name %> version
     options:
       <% IO.foreach(app_root+"/modules") do |line| %>
-      <%= line %>
+      - [ "<%= line %>" ]
       <% end %>
   bc_num_slots:
     label: "Number of cores"
