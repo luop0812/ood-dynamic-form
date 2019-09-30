@@ -17,10 +17,10 @@ to make sure that each form entry and its attributes are what you want.
 The key parts of the template file are the two segments of ruby code embeded into the yml file.
 
 ```
-<%-
+<%
 app_name = __app_name__
 app_root = __app_root__+app_name
--%>
+%>
 ```
 ```
     label: <%= app_name %> version
