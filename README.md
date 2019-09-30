@@ -26,7 +26,7 @@ app_root = __app_root__+app_name
     label: <%= app_name %> version
     options:
       <% IO.foreach(app_root+"/modules") do |line| %>
-      - <%= line %>
+      <%= line %>
       <% end %>
 ```
 
