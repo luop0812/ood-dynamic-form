@@ -29,13 +29,17 @@ apps=$(more $app_list_file)
 for app in $apps; do
     app_module_root=${module_root}/$app
     module_file=$app_module_root/modules
+
     if [ ! -d ${app_module_root} ]; then
         mkdir -p ${app_module_root}
-        
-        cmd="module spider $app/ 2>&1 |grep -i \"\ \ \ $app/\" "
-        ret=$(eval $cmd)
-        for module in $ret; do
-            echo "- [ \"$module\" ]" >> $module_file
-        done   
     fi
+
+    # run `module spider` to find all versions for a particular module        
+    cmd="module spider $app/ 2>&1 |grep -i \"\ \ \ $app/\" "
+    ret=$(eval $cmd)
+    # write each version to a file, with the format '- [ "version" ]'
+    cat /dev/null > $module_file
+    for module in $ret; do
+        echo "- [ \"$module\" ]" >> $module_file
+    done   
 done
