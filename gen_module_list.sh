@@ -25,6 +25,11 @@ if [ -z $module_root ] || [ -z $app_list_file ]; then
     exit 1
 fi
 
+if [ ! -f $app_list_file ]; then
+    echo "No such file: $app_list_file"
+    exit 1
+fi
+
 apps=$(more $app_list_file)
 for app in $apps; do
     app_module_root=${module_root}/$app
@@ -35,11 +40,6 @@ for app in $apps; do
     fi
 
     # run `module spider` to find all versions for a particular module        
-    cmd="module spider $app/ 2>&1 |grep -i \"\ \ \ $app/\" "
-    ret=$(eval $cmd)
-    # write each version to a file, with the format '- [ "version" ]'
-    cat /dev/null > $module_file
-    for module in $ret; do
-        echo "$module" >> $module_file
-    done   
+    cmd="$(dirname $0)/gen_module_list.py $app"
+    eval $cmd > $module_file
 done
